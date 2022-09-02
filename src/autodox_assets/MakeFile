@@ -1,0 +1,14 @@
+serve_web:
+	trunk serve --features web
+
+serve:
+	trunk serve
+
+kill:
+	kill -INT $(lsof -t -i :8080)
+
+run:
+	cargo run
+
+update:
+	cargo update
