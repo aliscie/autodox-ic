@@ -1,0 +1,35 @@
+{
+  "canisters": {
+    "autodox": {
+      "main": "src/autodox/main.mo",
+      "type": "motoko"
+    },
+    "autodox_assets": {
+      "dependencies": [
+        "autodox"
+      ],
+      "frontend": {
+        "entrypoint": "src/autodox_assets/src/index.html"
+      },
+      "source": [
+        "src/autodox_assets/assets",
+        "dist/autodox_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "dfx": "0.9.3",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
