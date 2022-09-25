@@ -5,7 +5,9 @@ install:
 
 
 start:
-	dfx start
+	dfx start --background
+	npm i --background
+	dfx deploy --background
 
 deploy:
 	dfx deploy
