@@ -1,3 +1,9 @@
+install:
+	cargo install ic-cdk-optimizer
+	brew install cmake
+
+
+
 start:
 	dfx start
 

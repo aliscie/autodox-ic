@@ -1,8 +1,9 @@
 {
   "canisters": {
     "autodox": {
-      "main": "src/autodox/main.mo",
-      "type": "motoko"
+      "candid": "src/autodox/autodox.did",
+      "package": "autodox",
+      "type": "rust"
     },
     "autodox_assets": {
       "dependencies": [
