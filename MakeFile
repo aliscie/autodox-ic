@@ -43,3 +43,7 @@ kill_all:
 
 optimize:
 	ic-cdk-optimizer target/wasm32-unknown-unknown/debug/main.wasm -o target/wasm32-unknown-unknown/debug/main-opt.wasm
+
+
+npm:
+	npm start

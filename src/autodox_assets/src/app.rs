@@ -1,77 +1,34 @@
+use web_sys::console::log_1;
 use yew::prelude::*;
-#[cfg(not(feature = "web"))]
-use crate::utils::{invoke, invoke_async};
+use wasm_bindgen::prelude::*;
 
-// use yew_router::prelude::*;
-
-
-use crate::utils::{FileNode, FileTree};
-use yewdux::prelude::*;
-use crate::components::{TitleBar, TitleBarButton};
-// use crate::router::*;
-
-use crate::components::TreeList;
-// use editor::Editor;
-use yewdux::prelude::*;
-// use yew_router::prelude::*;
-use web_sys::{window, Document, Element, MouseEvent};
-
-
-#[function_component(App)]
-pub fn app() -> Html {
-    let dispatch = Dispatch::<FileTree>::new();
-    dispatch.reduce_mut(|r| {
-        r.push_vertex(
-            234,
-            FileNode {
-                id: 234,
-                name: "FileOne".into(),
-                data: "File one".into(),
-            },
-        );
-        r.push_vertex(
-            235,
-            FileNode {
-                id: 235,
-                name: "FileTwo".into(),
-                data: "File tow".into(),
-            },
-        );
-        r.push_vertex(
-            225,
-            FileNode {
-                id: 225,
-                name: "FileThree".into(),
-                data: "File three".into(),
-            },
-        );
-    });
-    dispatch.reduce_mut(|r| {
-        r.push_edge(0, 234);
-        r.push_edge(234, 235);
-        r.push_edge(0, 225);
-    });
-
-    html! {
-        // <BrowserRouter>
-        <div>
-        {"hello world"}
-        // { super::utils::get_titlebar(article_position.clone(), x) }
-        // <aside style={format!("{}",(*aside_bar_taggol).clone())}>
-
-        <ul  id="myUL">
-            <TreeList/>
-        </ul>
-        // </aside>
-
-        // <article style={format!("{}",(*article_position).clone())}>
-        // <h2 contenteditable="true" class={"heading"}>
-        //   <Switch<Route> render={Switch::render(switch)} />
-        //   </h2>
-        //   <Editor/>
-        // </article>
-        </div>
-        // </BrowserRouter>
-    }
+#[wasm_bindgen(module = "/index.js")]
+extern "C" {
+    #[wasm_bindgen(js_name = my_function)]
+    pub fn test_canister(name: String) -> String;
 }
 
+
+#[function_component]
+pub fn App() -> Html {
+    let counter = use_state(|| 0);
+    let onclick = {
+        let counter = counter.clone();
+        move |_| {
+            let value = *counter + 1;
+            counter.set(value);
+        }
+    };
+    // let x = test_canister("hello".to_string());
+    // log_1(&format!("ondragstart {:?}", x).into());
+    //TODO
+    // Failed to load module script: Expected a JavaScript module script but the server responded with a MIME type of "text/html". Strict MIME type checking is enforced for module scripts per HTML spec.
+
+
+    html! {
+        <div>
+            <button {onclick}>{ "+1" }</button>
+            <p>{ *counter }</p>
+        </div>
+    }
+}

@@ -1,8 +1,16 @@
-serve_web:
-	trunk serve --features web
+add_webpack:
+	wasm-pack build --target web
 
-serve:
+Bundle:
+	rollup ./main.js --format iife --file ./pkg/bundle.js
+
+
+webpack:
+	python -m http.server 8080
+
+trunk:
 	trunk serve
+
 
 kill:
 	kill -INT $(lsof -t -i :8080)

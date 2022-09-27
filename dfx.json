@@ -10,7 +10,7 @@
         "autodox"
       ],
       "frontend": {
-        "entrypoint": "src/autodox_assets/src/index.html"
+        "entrypoint": "src/autodox_assets/index.html"
       },
       "source": [
         "src/autodox_assets/assets",
