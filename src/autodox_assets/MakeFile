@@ -1,3 +1,11 @@
+#config:
+#	 yarn update -g webpack
+# 	 yarn update -g webpack-cli
+#(base) apples-MacBook-Pro:autodox-ic apple$  webpack --version
+#webpack: 5.63.0
+#webpack-cli: 4.10.0
+#webpack-dev-server 4.11.1
+
 add_webpack:
 	wasm-pack build --target web
 
@@ -6,11 +14,14 @@ Bundle:
 
 
 webpack:
+	#cargo web start
 	python -m http.server 8080
 
 trunk:
 	trunk serve
 
+tree:
+	cargo tree -i
 
 kill:
 	kill -INT $(lsof -t -i :8080)

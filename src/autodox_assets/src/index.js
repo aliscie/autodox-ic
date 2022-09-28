@@ -1,19 +1,11 @@
-import { autodox } from "../../declarations/autodox";
+//TODO
+// import {autodox} from "../../declarations/autodox/index.js";
+// Failed to load module script: Expected a JavaScript module script but the server responded with a MIME type of "text/html". Strict MIME type checking is enforced for module scripts per HTML spec.
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = e.target.querySelector("button");
 
-  const name = document.getElementById("name").value.toString();
+// import {other} from "./index2.js";
 
-  button.setAttribute("disabled", true);
-
-  // Interact with foo actor, calling the greet method
-  const greeting = await autodox.greet(name);
-
-  button.removeAttribute("disabled");
-
-  document.getElementById("greeting").innerText = greeting;
-
-  return false;
-});
+export function my_function(name) {
+    // let x = autodox;
+    return "autodox.greet(name)";
+}
